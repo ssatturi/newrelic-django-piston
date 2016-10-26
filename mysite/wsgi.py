@@ -13,12 +13,12 @@ from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "mysite.settings")
 
-import newrelic.agent
-newrelic.agent.initialize('/etc/newrelic.ini', 'testing')
+#import newrelic.agent
+#newrelic.agent.initialize('/etc/newrelic.ini', 'testing')
 
 from django.core.wsgi import get_wsgi_application
 application = get_wsgi_application()
-application = newrelic.agent.WSGIApplicationWrapper(application)
+#application = newrelic.agent.WSGIApplicationWrapper(application)
 
 
 #application = get_wsgi_application()
