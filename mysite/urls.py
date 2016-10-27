@@ -17,7 +17,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.views.decorators.cache import cache_control
 from piston.resource import Resource
-from mysite.handlers import TestHandler1, TestHandler2
+from mysite.handlers import TestHandler1, TestHandler2, TestHandler3, TestHandler4
 
 cached_resource = cache_control(public=False, maxage=0, s_maxage=0, no_cache=True, must_revalidate=True)
 
@@ -27,10 +27,13 @@ def create_resource(Handler):
 
 testhandler1=create_resource(TestHandler1)
 testhandler2=create_resource(TestHandler2)
+testhandler3=create_resource(TestHandler3)
+testhandler4=create_resource(TestHandler4)
 
 urlpatterns = [
 #    url(r'^admin/', admin.site.urls),
      url(r'^hello', testhandler1, name='testhandler1'),
-     url(r'^hi', testhandler2, name='testhandler2')
-
+     url(r'^hi', testhandler2, name='testhandler2'),
+     url(r'^ola', testhandler3, name='testhandle3'),
+     url(r'^namaste', testhandler4, name='testhandler4')
 ]
